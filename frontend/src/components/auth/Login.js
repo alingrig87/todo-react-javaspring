@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 
 const Login = () => {
 	const [username, setUsername] = useState('');
@@ -23,11 +24,7 @@ const Login = () => {
 
 	return (
 		<div>
-			{loginState ? (
-				<div>Login Successful</div>
-			) : (
-				<div>Invalid Credentials</div>
-			)}
+			{loginState ? <Navigate to="/welcome" /> : <div>Invalid Credentials</div>}
 			<div>
 				<label htmlFor="username">Username</label>
 				<input
